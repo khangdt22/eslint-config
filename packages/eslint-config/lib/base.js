@@ -52,7 +52,6 @@ module.exports = {
         'unicorn/prefer-module': 'off',
         'unicorn/switch-case-braces': ['warn', 'avoid'],
 
-        'import/consistent-type-specifier-style': ['warn', 'prefer-top-level'],
         'import/newline-after-import': 'warn',
         'import/no-absolute-path': 'warn',
         'import/no-deprecated': 'warn',
