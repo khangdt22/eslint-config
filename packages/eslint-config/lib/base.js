@@ -45,6 +45,7 @@ module.exports = {
         'unicorn/no-empty-file': 'off',
         'unicorn/no-null': 'off',
         'unicorn/no-process-exit': 'off',
+        'unicorn/prefer-event-target': 'off',
         'unicorn/prefer-top-level-await': 'off',
         'unicorn/prevent-abbreviations': 'off',
         'unicorn/prefer-module': 'off',
