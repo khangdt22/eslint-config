@@ -49,6 +49,7 @@ module.exports = {
         'unicorn/prefer-top-level-await': 'off',
         'unicorn/prevent-abbreviations': 'off',
         'unicorn/prefer-module': 'off',
+        'unicorn/switch-case-braces': ['warn', 'avoid'],
 
         'import/newline-after-import': 'warn',
         'import/no-absolute-path': 'warn',
