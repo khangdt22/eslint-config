@@ -69,7 +69,6 @@ module.exports = {
         'no-self-compare': 'warn',
         'no-unused-private-class-members': 'warn',
         'block-scoped-var': 'warn',
-        'camelcase': ['warn', { ignoreDestructuring: true, ignoreImports: true, ignoreGlobals: true }],
         'curly': ['warn', 'all'],
         'default-case-last': 'warn',
         'default-param-last': 'warn',
