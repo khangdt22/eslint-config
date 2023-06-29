@@ -25,6 +25,7 @@ module.exports = {
     rules: {
         'khangdt/arrow-empty-body-newline': 'warn',
         'khangdt/import-single-line': 'warn',
+        'khangdt/object-curly-newline': 'warn',
 
         'sonarjs/cognitive-complexity': 'off',
         'sonarjs/no-duplicate-string': 'off',
@@ -173,15 +174,6 @@ module.exports = {
         'no-trailing-spaces': 'warn',
         'no-whitespace-before-property': 'warn',
         'nonblock-statement-body-position': ['warn', 'below'],
-        'object-curly-newline': [
-            'warn',
-            {
-                ObjectExpression: { multiline: true },
-                ObjectPattern: 'never',
-                ImportDeclaration: 'never',
-                ExportDeclaration: { multiline: true },
-            },
-        ],
         'object-curly-spacing': ['warn', 'always'],
         'object-property-newline': ['warn', { allowAllPropertiesOnSameLine: true }],
         'operator-linebreak': ['warn', 'after'],
