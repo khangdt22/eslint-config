@@ -1,0 +1,37 @@
+{
+    "name": "@khangdt22/eslint-config",
+    "version": "0.0.0",
+    "keywords": [
+        "eslint",
+        "eslintconfig"
+    ],
+    "homepage": "https://github.com/khangdt22/eslint-config",
+    "bugs": {
+        "email": "khangdt310722@gmail.com",
+        "url": "https://github.com/khangdt22/eslint-config/issues"
+    },
+    "license": "MIT",
+    "author": "Tuan Khang <khangdt310722@gmail.com>",
+    "files": [
+        "lib"
+    ],
+    "main": "lib/index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/khangdt22/eslint-config.git",
+        "directory": "packages/eslint-config"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "dependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.60.1",
+        "@typescript-eslint/parser": "^5.60.1",
+        "eslint-import-resolver-typescript": "^3.5.5",
+        "eslint-plugin-import": "^2.27.5",
+        "eslint-plugin-khangdt": "workspace:*",
+        "eslint-plugin-promise": "^6.1.1",
+        "eslint-plugin-sonarjs": "^0.19.0",
+        "eslint-plugin-unicorn": "^47.0.0"
+    }
+}

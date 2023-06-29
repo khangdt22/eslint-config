@@ -1,0 +1,40 @@
+{
+    "name": "eslint-plugin-khangdt",
+    "version": "0.0.0",
+    "keywords": [
+        "eslint",
+        "eslint-plugin"
+    ],
+    "homepage": "https://github.com/khangdt22/eslint-config",
+    "bugs": {
+        "email": "khangdt310722@gmail.com",
+        "url": "https://github.com/khangdt22/eslint-config/issues"
+    },
+    "license": "MIT",
+    "author": "Tuan Khang <khangdt310722@gmail.com>",
+    "files": [
+        "dist"
+    ],
+    "main": "dist/index.cjs",
+    "module": "dist/index.mjs",
+    "exports": {
+        ".": {
+            "require": "./dist/index.cjs",
+            "import": "./dist/index.mjs"
+        }
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/khangdt22/eslint-config.git",
+        "directory": "packages/eslint-plugin-khangdt"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "build": "unbuild"
+    },
+    "dependencies": {
+        "@typescript-eslint/utils": "^5.60.1"
+    }
+}

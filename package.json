@@ -1,0 +1,25 @@
+{
+    "license": "MIT",
+    "private": true,
+    "version": "0.0.1",
+    "packageManager": "pnpm@8.6.5",
+    "author": "Tuan Khang <khangdt310722@gmail.com>",
+    "scripts": {
+        "build": "tsc --noEmit && pnpm -r run build",
+        "release": "bumpp -r && pnpm -r publish",
+        "prepublishOnly": "pnpm run build"
+    },
+    "devDependencies": {
+        "@khangdt22/eslint-config": "workspace:*",
+        "@types/eslint": "^8.40.2",
+        "@types/node": "^20.3.2",
+        "bumpp": "^9.1.1",
+        "eslint": "^8.43.0",
+        "eslint-plugin-khangdt": "link:./packages/eslint-plugin-khangdt",
+        "typescript": ">= 5.0 <= 5.1.0",
+        "unbuild": "^1.2.1"
+    },
+    "eslintConfig": {
+        "extends": "@khangdt22"
+    }
+}
