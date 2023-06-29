@@ -61,7 +61,14 @@ module.exports = {
         'import/no-useless-path-segments': 'warn',
         'import/extensions': ['warn', 'never'],
         'import/first': 'warn',
-        'import/order': 'warn',
+        'import/order': [
+            'warn',
+            {
+                alphabetize: { order: 'asc' },
+                groups: ['type', 'builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'unknown', 'object'],
+                warnOnUnassignedImports: true,
+            },
+        ],
 
         'promise/catch-or-return': 'off',
         'promise/no-multiple-resolved': 'error',
