@@ -67,9 +67,20 @@ module.exports = {
         'import/order': [
             'warn',
             {
-                alphabetize: { order: 'asc' },
-                groups: ['type', 'builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'unknown', 'object'],
-                warnOnUnassignedImports: true,
+                'alphabetize': { order: 'asc' },
+                'groups': [
+                    'type',
+                    'builtin',
+                    'external',
+                    'internal',
+                    'parent',
+                    'sibling',
+                    'index',
+                    'unknown',
+                    'object',
+                ],
+                'newlines-between': 'never',
+                'warnOnUnassignedImports': true,
             },
         ],
 
