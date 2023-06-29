@@ -65,7 +65,6 @@ module.exports = {
         'promise/catch-or-return': 'off',
         'promise/no-multiple-resolved': 'error',
 
-        'no-duplicate-imports': ['warn', { includeExports: true }],
         'no-self-compare': 'warn',
         'no-unused-private-class-members': 'warn',
         'block-scoped-var': 'warn',
