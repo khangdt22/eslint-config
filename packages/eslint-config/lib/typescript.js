@@ -75,6 +75,7 @@ module.exports = {
         '@typescript-eslint/consistent-type-imports': 'warn',
         '@typescript-eslint/member-delimiter-style': ['warn', { multiline: { delimiter: 'none' } }],
         '@typescript-eslint/no-duplicate-enum-values': 'warn',
+        '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-import-type-side-effects': 'warn',
         '@typescript-eslint/no-non-null-asserted-nullish-coalescing': 'warn',
         '@typescript-eslint/no-unsafe-declaration-merging': 'warn',
