@@ -146,7 +146,7 @@ module.exports = {
         'eol-last': 'warn',
         'func-call-spacing': 'warn',
         'function-call-argument-newline': ['warn', 'consistent'],
-        'function-paren-newline': ['warn', 'multiline'],
+        'function-paren-newline': ['warn', 'multiline-arguments'],
         'generator-star-spacing': ['warn', 'both'],
         'implicit-arrow-linebreak': 'warn',
         'indent': ['warn', 4, { SwitchCase: 1 }],
