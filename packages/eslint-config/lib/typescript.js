@@ -7,6 +7,9 @@ const allExtensions = [...jsExtensions, ...tsExtensions]
 
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
+    parserOptions: {
+        warnOnUnsupportedTypeScriptVersion: false,
+    },
     extends: ['plugin:import/typescript', 'plugin:@typescript-eslint/recommended'],
     plugins: ['@typescript-eslint'],
     settings: {
@@ -70,9 +73,8 @@ module.exports = {
         'space-infix-ops': 'off',
         '@typescript-eslint/array-type': ['warn', { default: 'array-simple' }],
         '@typescript-eslint/ban-tslint-comment': 'warn',
-        '@typescript-eslint/class-literal-property-style': 'warn',
         '@typescript-eslint/consistent-generic-constructors': 'warn',
-        '@typescript-eslint/consistent-type-imports': 'warn',
+        '@typescript-eslint/consistent-type-imports': ['warn', { fixStyle: 'inline-type-imports' }],
         '@typescript-eslint/member-delimiter-style': ['warn', { multiline: { delimiter: 'none' } }],
         '@typescript-eslint/no-duplicate-enum-values': 'warn',
         '@typescript-eslint/no-explicit-any': 'off',
