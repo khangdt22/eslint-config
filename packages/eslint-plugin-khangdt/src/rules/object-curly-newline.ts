@@ -8,7 +8,7 @@ export default ESLintUtils.RuleCreator.withoutDocs({
     defaultOptions: [
         {
             ObjectExpression: { multiline: true },
-            ObjectPattern: 'never',
+            ObjectPattern: { multiline: true, consistent: true },
             ImportDeclaration: 'never',
             ExportDeclaration: 'never',
         },
