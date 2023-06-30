@@ -220,6 +220,7 @@ module.exports = {
                 },
             },
         ],
+        'unicorn/new-for-builtins': 'off',
         'unicorn/no-array-reduce': 'off',
         'unicorn/no-await-expression-member': 'off',
         'unicorn/no-array-callback-reference': 'off',
