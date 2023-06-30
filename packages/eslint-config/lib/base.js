@@ -28,6 +28,14 @@ module.exports = {
         navigator: 'readonly',
         window: 'readonly',
     },
+    overrides: [
+        {
+            files: ['database/**/*.{js,ts}'],
+            rules: {
+                'unicorn/filename-case': 'off',
+            },
+        },
+    ],
     rules: {
         'no-fallthrough': ['warn', { allowEmptyCase: true }],
         'no-self-compare': 'warn',
@@ -239,6 +247,7 @@ module.exports = {
 
         'import/newline-after-import': 'warn',
         'import/no-deprecated': 'warn',
+        'import/no-duplicates': 'off',
         'import/no-mutable-exports': 'error',
         'import/no-named-default': 'warn',
         'import/no-webpack-loader-syntax': 'error',

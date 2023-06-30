@@ -3,7 +3,8 @@ const { existsSync } = require('fs')
 const { rules: baseRules } = require('./base')
 
 const tsconfig = process.env.ESLINT_TSCONFIG || 'tsconfig.json'
-const isTsConfigExists = existsSync(join(process.cwd(), tsconfig))
+const tsconfigPath = join(process.cwd(), tsconfig)
+const isTsConfigExists = existsSync(tsconfigPath)
 
 const jsExtensions = ['.js', '.jsx', '.mjs', '.cjs']
 const tsExtensions = ['.ts', '.tsx', '.mts', '.cts']
@@ -11,16 +12,23 @@ const allExtensions = [...jsExtensions, ...tsExtensions]
 
 const requiringTypeCheckingRules = {
     'no-throw-literal': 'off',
-    '@typescript-eslint/explicit-member-accessibility': 'warn',
+
+    '@typescript-eslint/await-thenable': 'off',
     '@typescript-eslint/consistent-type-exports': 'warn',
+    '@typescript-eslint/explicit-member-accessibility': 'warn',
+    '@typescript-eslint/no-floating-promises': 'off',
     '@typescript-eslint/no-duplicate-type-constituents': 'warn',
+    '@typescript-eslint/no-misused-promises': 'off',
     '@typescript-eslint/no-mixed-enums': 'warn',
-    '@typescript-eslint/no-redundant-type-constituents': 'warn',
     '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'warn',
-    '@typescript-eslint/no-unnecessary-condition': 'warn',
     '@typescript-eslint/no-unnecessary-qualifier': 'warn',
     '@typescript-eslint/no-unnecessary-type-arguments': 'warn',
+    '@typescript-eslint/no-unsafe-argument': 'off',
+    '@typescript-eslint/no-unsafe-assignment': 'off',
+    '@typescript-eslint/no-unsafe-call': 'off',
     '@typescript-eslint/no-unsafe-enum-comparison': 'warn',
+    '@typescript-eslint/no-unsafe-member-access': 'off',
+    '@typescript-eslint/no-unsafe-return': 'off',
     '@typescript-eslint/prefer-includes': 'warn',
     '@typescript-eslint/prefer-readonly': 'warn',
     '@typescript-eslint/prefer-reduce-type-parameter': 'warn',
@@ -28,7 +36,10 @@ const requiringTypeCheckingRules = {
     '@typescript-eslint/prefer-return-this-type': 'warn',
     '@typescript-eslint/prefer-string-starts-ends-with': 'warn',
     '@typescript-eslint/require-array-sort-compare': ['warn', { ignoreStringArrays: true }],
+    '@typescript-eslint/restrict-plus-operands': ['warn', { allowAny: true, allowNumberAndString: true }],
+    '@typescript-eslint/restrict-template-expressions': 'off',
     '@typescript-eslint/no-throw-literal': ['warn', { allowThrowingAny: true, allowThrowingUnknown: true }],
+    '@typescript-eslint/require-await': 'off',
 }
 
 /** @type {import('eslint').Linter.Config} */
@@ -40,8 +51,16 @@ module.exports = {
     },
     settings: {
         'import/extensions': allExtensions,
-        'import/parsers': { '@typescript-eslint/parser': tsExtensions },
-        'import/resolver': { node: { extensions: allExtensions } },
+        'import/parsers': {
+            '@typescript-eslint/parser': tsExtensions,
+        },
+        'import/resolver': {
+            node: { extensions: allExtensions },
+            typescript: {
+                extensions: tsExtensions,
+                project: tsconfigPath,
+            },
+        },
     },
     overrides: [
         {
@@ -80,7 +99,6 @@ module.exports = {
         '@typescript-eslint/array-type': ['warn', { default: 'array-simple' }],
         '@typescript-eslint/ban-tslint-comment': 'warn',
         '@typescript-eslint/consistent-generic-constructors': 'warn',
-        '@typescript-eslint/consistent-type-imports': 'warn',
         '@typescript-eslint/member-delimiter-style': ['warn', { multiline: { delimiter: 'none' } }],
         '@typescript-eslint/no-duplicate-enum-values': 'warn',
         '@typescript-eslint/no-explicit-any': 'off',
@@ -118,6 +136,7 @@ module.exports = {
             'warn',
             4,
             {
+                SwitchCase: 1,
                 ignoredNodes: ['TSTypeReference > TSTypeReference'],
             },
         ],
