@@ -65,7 +65,7 @@ module.exports = {
         'symbol-description': 'warn',
         'vars-on-top': 'warn',
         'yoda': 'warn',
-        'array-bracket-newline': ['warn', { multiline: true }],
+        'array-bracket-newline': ['warn', 'consistent'],
         'array-bracket-spacing': 'warn',
         'array-element-newline': ['warn', 'consistent'],
         'arrow-parens': ['warn', 'always'],
@@ -232,6 +232,7 @@ module.exports = {
         'unicorn/prevent-abbreviations': 'off',
         'unicorn/prefer-module': 'off',
         'unicorn/switch-case-braces': ['warn', 'avoid'],
+        'unicorn/require-number-to-fixed-digits-argument': 'off',
 
         'promise/catch-or-return': 'off',
         'promise/no-multiple-resolved': 'error',

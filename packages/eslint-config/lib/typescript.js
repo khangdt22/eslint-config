@@ -80,7 +80,7 @@ module.exports = {
         '@typescript-eslint/array-type': ['warn', { default: 'array-simple' }],
         '@typescript-eslint/ban-tslint-comment': 'warn',
         '@typescript-eslint/consistent-generic-constructors': 'warn',
-        '@typescript-eslint/consistent-type-imports': ['warn', { fixStyle: 'inline-type-imports' }],
+        '@typescript-eslint/consistent-type-imports': 'warn',
         '@typescript-eslint/member-delimiter-style': ['warn', { multiline: { delimiter: 'none' } }],
         '@typescript-eslint/no-duplicate-enum-values': 'warn',
         '@typescript-eslint/no-explicit-any': 'off',
@@ -114,7 +114,13 @@ module.exports = {
         '@typescript-eslint/comma-spacing': 'warn',
         '@typescript-eslint/default-param-last': 'warn',
         '@typescript-eslint/func-call-spacing': 'warn',
-        '@typescript-eslint/indent': 'warn',
+        '@typescript-eslint/indent': [
+            'warn',
+            4,
+            {
+                ignoredNodes: ['TSTypeReference > TSTypeReference'],
+            },
+        ],
         '@typescript-eslint/key-spacing': 'warn',
         '@typescript-eslint/no-empty-function': 'off',
         '@typescript-eslint/keyword-spacing': 'off',
