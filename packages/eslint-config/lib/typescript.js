@@ -7,11 +7,11 @@ const allExtensions = [...jsExtensions, ...tsExtensions]
 
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
+    extends: ['./base', 'plugin:import/typescript', 'plugin:@typescript-eslint/recommended'],
+    plugins: ['@typescript-eslint'],
     parserOptions: {
         warnOnUnsupportedTypeScriptVersion: false,
     },
-    extends: ['plugin:import/typescript', 'plugin:@typescript-eslint/recommended'],
-    plugins: ['@typescript-eslint'],
     settings: {
         'import/extensions': allExtensions,
         'import/parsers': { '@typescript-eslint/parser': tsExtensions },
