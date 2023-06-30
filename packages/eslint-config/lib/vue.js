@@ -5,8 +5,8 @@ const semverLt = require('semver/functions/lt')
 const hasTypescript = isPackageExists('typescript')
 const vueVersion = getPackageInfoSync('vue')?.version
 
-const isVue3 = semverGte(vueVersion, '3.0.0') && semverLt(vueVersion, '4.0.0')
-const isVue2 = semverGte(vueVersion, '2.0.0') && semverLt(vueVersion, '3.0.0')
+const isVue3 = !!vueVersion && semverGte(vueVersion, '3.0.0') && semverLt(vueVersion, '4.0.0')
+const isVue2 = !!vueVersion && semverGte(vueVersion, '2.0.0') && semverLt(vueVersion, '3.0.0')
 
 function getPreset() {
     return isVue3 ? 'plugin:vue/vue3-recommended' : isVue2 ? 'plugin:vue/recommended' : 'plugin:vue/base'
