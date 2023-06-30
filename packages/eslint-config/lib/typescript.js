@@ -78,6 +78,7 @@ module.exports = {
         '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/no-import-type-side-effects': 'warn',
         '@typescript-eslint/no-non-null-asserted-nullish-coalescing': 'warn',
+        '@typescript-eslint/no-non-null-assertion': 'off',
         '@typescript-eslint/no-unsafe-declaration-merging': 'warn',
         '@typescript-eslint/no-useless-empty-export': 'warn',
         '@typescript-eslint/no-var-requires': 'off',
