@@ -36,7 +36,10 @@ module.exports = {
                 'vue/component-name-in-template-casing': 'warn',
                 'vue/component-options-name-casing': 'warn',
                 'vue/custom-event-name-casing': ['warn', isVue3 ? 'camelCase' : 'kebab-case'],
-                'vue/define-macros-order': ['warn', ['defineOptions', 'defineProps', 'defineEmits', 'defineSlots']],
+                'vue/define-macros-order': [
+                    'warn',
+                    { order: ['defineOptions', 'defineProps', 'defineEmits', 'defineSlots'] },
+                ],
                 'vue/html-button-has-type': 'error',
                 'vue/html-comment-content-newline': 'warn',
                 'vue/html-comment-content-spacing': 'warn',
