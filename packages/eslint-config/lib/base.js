@@ -199,6 +199,10 @@ module.exports = {
         'unicode-bom': 'warn',
         'yield-star-spacing': ['warn', 'both'],
 
+        'n/no-missing-import': 'off',
+        'n/no-missing-require': 'off',
+        'n/no-unpublished-import': 'off',
+        'n/no-unpublished-require': 'off',
         'n/no-process-exit': 'off',
         'n/no-path-concat': 'error',
 
