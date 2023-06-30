@@ -1,9 +1,35 @@
+const { join } = require('path')
+const { existsSync } = require('fs')
 const { rules: baseRules } = require('./base')
+
 const tsconfig = process.env.ESLINT_TSCONFIG || 'tsconfig.json'
+const isTsConfigExists = existsSync(join(process.cwd(), tsconfig))
 
 const jsExtensions = ['.js', '.jsx', '.mjs', '.cjs']
 const tsExtensions = ['.ts', '.tsx', '.mts', '.cts']
 const allExtensions = [...jsExtensions, ...tsExtensions]
+
+const requiringTypeCheckingRules = {
+    'no-throw-literal': 'off',
+    '@typescript-eslint/explicit-member-accessibility': 'warn',
+    '@typescript-eslint/consistent-type-exports': 'warn',
+    '@typescript-eslint/no-duplicate-type-constituents': 'warn',
+    '@typescript-eslint/no-mixed-enums': 'warn',
+    '@typescript-eslint/no-redundant-type-constituents': 'warn',
+    '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'warn',
+    '@typescript-eslint/no-unnecessary-condition': 'warn',
+    '@typescript-eslint/no-unnecessary-qualifier': 'warn',
+    '@typescript-eslint/no-unnecessary-type-arguments': 'warn',
+    '@typescript-eslint/no-unsafe-enum-comparison': 'warn',
+    '@typescript-eslint/prefer-includes': 'warn',
+    '@typescript-eslint/prefer-readonly': 'warn',
+    '@typescript-eslint/prefer-reduce-type-parameter': 'warn',
+    '@typescript-eslint/prefer-regexp-exec': 'warn',
+    '@typescript-eslint/prefer-return-this-type': 'warn',
+    '@typescript-eslint/prefer-string-starts-ends-with': 'warn',
+    '@typescript-eslint/require-array-sort-compare': ['warn', { ignoreStringArrays: true }],
+    '@typescript-eslint/no-throw-literal': ['warn', { allowThrowingAny: true, allowThrowingUnknown: true }],
+}
 
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
@@ -25,28 +51,8 @@ module.exports = {
                 project: [tsconfig],
                 tsconfigRootDir: process.cwd(),
             },
-            extends: ['plugin:@typescript-eslint/recommended-requiring-type-checking'],
-            rules: {
-                'no-throw-literal': 'off',
-                '@typescript-eslint/explicit-member-accessibility': 'warn',
-                '@typescript-eslint/consistent-type-exports': 'warn',
-                '@typescript-eslint/no-duplicate-type-constituents': 'warn',
-                '@typescript-eslint/no-mixed-enums': 'warn',
-                '@typescript-eslint/no-redundant-type-constituents': 'warn',
-                '@typescript-eslint/no-unnecessary-boolean-literal-compare': 'warn',
-                '@typescript-eslint/no-unnecessary-condition': 'warn',
-                '@typescript-eslint/no-unnecessary-qualifier': 'warn',
-                '@typescript-eslint/no-unnecessary-type-arguments': 'warn',
-                '@typescript-eslint/no-unsafe-enum-comparison': 'warn',
-                '@typescript-eslint/prefer-includes': 'warn',
-                '@typescript-eslint/prefer-readonly': 'warn',
-                '@typescript-eslint/prefer-reduce-type-parameter': 'warn',
-                '@typescript-eslint/prefer-regexp-exec': 'warn',
-                '@typescript-eslint/prefer-return-this-type': 'warn',
-                '@typescript-eslint/prefer-string-starts-ends-with': 'warn',
-                '@typescript-eslint/require-array-sort-compare': ['warn', { ignoreStringArrays: true }],
-                '@typescript-eslint/no-throw-literal': ['warn', { allowThrowingAny: true, allowThrowingUnknown: true }],
-            },
+            extends: isTsConfigExists ? ['plugin:@typescript-eslint/recommended-requiring-type-checking'] : [],
+            rules: isTsConfigExists ? requiringTypeCheckingRules : {},
         },
     ],
     rules: {

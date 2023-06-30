@@ -1,40 +1,32 @@
+const { isPackageExists, getPackageInfoSync } = require('local-pkg')
+const semverGte = require('semver/functions/gte')
+const semverLt = require('semver/functions/lt')
+
+const hasTypescript = isPackageExists('typescript')
+const vueVersion = getPackageInfoSync('vue')?.version
+
+function getPreset() {
+    if (semverGte(vueVersion, '3.0.0') && semverLt(vueVersion, '4.0.0')) {
+        return 'plugin:vue/vue3-recommended'
+    }
+
+    if (semverGte(vueVersion, '2.0.0') && semverLt(vueVersion, '3.0.0')) {
+        return 'plugin:vue/recommended'
+    }
+
+    return 'plugin:vue/base'
+}
+
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
-    extends: ['./typescript', 'plugin:vue/vue3-recommended'],
+    extends: [hasTypescript ? './typescript' : './base'],
     overrides: [
         {
             files: ['*.vue'],
-            parser: 'vue-eslint-parser',
-            parserOptions: {
-                parser: '@typescript-eslint/parser',
-            },
+            extends: [getPreset()],
+            parserOptions: hasTypescript ? { parser: '@typescript-eslint/parser' } : {},
             rules: {
-                'indent': 'off',
-                'vue/multi-word-component-names': 'off',
-                'vue/no-v-html': 'off',
-                'vue/block-lang': ['error', { script: { lang: 'ts' } }],
-                'vue/block-tag-newline': 'warn',
-                'vue/component-api-style': 'warn',
-                'vue/custom-event-name-casing': 'warn',
-                'vue/html-comment-content-newline': 'warn',
-                'vue/html-comment-content-spacing': 'warn',
-                'vue/html-comment-indent': ['warn', 4],
-                'vue/no-empty-component-block': 'warn',
-                'vue/no-multiple-objects-in-class': 'warn',
-                'vue/no-required-prop-with-default': 'warn',
-                'vue/no-this-in-before-route-enter': 'error',
-                'vue/no-useless-mustaches': 'warn',
-                'vue/no-useless-v-bind': 'warn',
-                'vue/padding-line-between-blocks': 'warn',
-                'vue/prefer-define-options': 'warn',
-                'vue/prefer-prop-type-boolean-first': 'error',
-                'vue/prefer-separate-static-class': 'warn',
-                'vue/prefer-true-attribute-shorthand': 'warn',
-                'vue/require-macro-variable-name': 'warn',
-                'vue/require-typed-ref': 'warn',
-                'vue/script-indent': ['warn', 4, { baseIndent: 1, switchCase: 1 }],
-                'vue/v-for-delimiter-style': 'warn',
-                'vue/valid-define-options': 'error',
+                'vue/no-unsupported-features': ['error', { version: vueVersion }],
             },
         },
     ],
