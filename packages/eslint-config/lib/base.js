@@ -16,6 +16,7 @@ module.exports = {
     reportUnusedDisableDirectives: true,
     extends: [
         'eslint:recommended',
+        'plugin:n/recommended',
         'plugin:sonarjs/recommended',
         'plugin:unicorn/recommended',
         'plugin:import/recommended',
@@ -197,6 +198,9 @@ module.exports = {
         'template-tag-spacing': 'warn',
         'unicode-bom': 'warn',
         'yield-star-spacing': ['warn', 'both'],
+
+        'n/no-process-exit': 'off',
+        'n/no-path-concat': 'error',
 
         'sonarjs/cognitive-complexity': 'off',
         'sonarjs/no-duplicate-string': 'off',
