@@ -1,7 +1,6 @@
 const { isPackageExists, getPackageInfoSync } = require('local-pkg')
 const semverGte = require('semver/functions/gte')
 const semverLt = require('semver/functions/lt')
-const { settings } = require('./typescript')
 
 const hasTypescript = isPackageExists('typescript')
 const vueVersion = getPackageInfoSync('vue')?.version
@@ -21,11 +20,9 @@ module.exports = {
             files: ['*.vue'],
             extends: [getPreset()],
             parserOptions: hasTypescript ? { parser: '@typescript-eslint/parser' } : {},
-            settings: {
-                'import/extensions': [...settings['import/extensions'], '.vue'],
-            },
             rules: {
                 'indent': 'off',
+                'max-len': 'off',
                 '@typescript-eslint/indent': 'off',
 
                 'vue/block-tag-newline': ['warn', { maxEmptyLines: 1 }],
@@ -67,14 +64,16 @@ module.exports = {
                 'vue/v-for-delimiter-style': 'warn',
                 'vue/valid-define-options': 'error',
 
+                'vue/html-indent': ['warn', 4],
+                'vue/max-attributes-per-line': 'off',
                 'vue/array-bracket-newline': ['warn', 'never'],
                 'vue/array-bracket-spacing': ['warn', 'never'],
                 'vue/array-element-newline': ['warn', 'never'],
-                'vue/arrow-spacing': ['warn', 'both'],
+                'vue/arrow-spacing': ['warn', { before: true, after: true }],
                 'vue/block-spacing': ['warn', 'always'],
                 'vue/brace-style': ['warn', '1tbs', { allowSingleLine: true }],
                 'vue/comma-dangle': ['warn', 'never'],
-                'vue/comma-spacing': ['warn', 'after'],
+                'vue/comma-spacing': ['warn', { before: false, after: true }],
                 'vue/comma-style': ['warn', 'last'],
                 'vue/dot-location': ['warn', 'property'],
                 'vue/func-call-spacing': ['warn', 'never'],
@@ -101,7 +100,7 @@ module.exports = {
                 'vue/no-loss-of-precision': 'warn',
                 'vue/object-curly-newline': ['warn', 'never'],
                 'vue/object-curly-spacing': ['warn', 'always'],
-                'vue/object-property-newline': ['warn', 'never'],
+                'vue/object-property-newline': ['warn', { allowAllPropertiesOnSameLine: true }],
                 'vue/object-shorthand': ['warn', 'properties', { avoidQuotes: true }],
                 'vue/operator-linebreak': ['warn', 'none'],
                 'vue/quote-props': ['warn', 'consistent-as-needed'],
