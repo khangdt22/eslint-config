@@ -19,7 +19,7 @@ module.exports = {
     },
     overrides: [
         {
-            files: tsExtensions,
+            files: tsExtensions.map((ext) => `*${ext}`),
             parser: '@typescript-eslint/parser',
             parserOptions: {
                 project: [tsconfig],
