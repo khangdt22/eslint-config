@@ -201,6 +201,7 @@ module.exports = {
         'sonarjs/cognitive-complexity': 'off',
         'sonarjs/no-duplicate-string': 'off',
 
+        'unicorn/consistent-destructuring': 'off',
         'unicorn/consistent-function-scoping': ['error', { checkArrowFunctions: false }],
         'unicorn/filename-case': [
             'warn',
