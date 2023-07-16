@@ -232,6 +232,7 @@ module.exports = {
         'unicorn/no-array-reduce': 'off',
         'unicorn/no-await-expression-member': 'off',
         'unicorn/no-array-callback-reference': 'off',
+        'unicorn/no-array-push-push': 'off',
         'unicorn/no-empty-file': 'off',
         'unicorn/no-null': 'off',
         'unicorn/no-process-exit': 'off',
@@ -243,6 +244,7 @@ module.exports = {
         'unicorn/require-number-to-fixed-digits-argument': 'off',
 
         'promise/catch-or-return': 'off',
+        'promise/no-callback-in-promise': 'off',
         'promise/no-multiple-resolved': 'error',
 
         'import/newline-after-import': 'warn',
