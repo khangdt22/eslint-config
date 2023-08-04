@@ -9,7 +9,7 @@ const isVue3 = !!vueVersion && semverGte(vueVersion, '3.0.0') && semverLt(vueVer
 const isVue2 = !!vueVersion && semverGte(vueVersion, '2.0.0') && semverLt(vueVersion, '3.0.0')
 
 function getPreset() {
-    return isVue3 ? 'plugin:vue/vue3-recommended' : isVue2 ? 'plugin:vue/recommended' : 'plugin:vue/base'
+    return isVue3 ? 'plugin:vue/vue3-recommended' : (isVue2 ? 'plugin:vue/recommended' : 'plugin:vue/base')
 }
 
 /** @type {import('eslint').Linter.Config} */
@@ -23,6 +23,7 @@ module.exports = {
             rules: {
                 'indent': 'off',
                 'max-len': 'off',
+                'no-undef': 'off',
                 '@typescript-eslint/indent': 'off',
 
                 'vue/block-tag-newline': ['warn', { maxEmptyLines: 1 }],
