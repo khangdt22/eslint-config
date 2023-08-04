@@ -41,6 +41,7 @@ module.exports = {
                 'vue/html-comment-content-newline': 'warn',
                 'vue/html-comment-content-spacing': 'warn',
                 'vue/html-comment-indent': ['warn', 4],
+                'vue/multi-word-component-names': 'off',
                 'vue/no-empty-component-block': 'warn',
                 'vue/no-multiple-objects-in-class': 'warn',
                 'vue/no-ref-object-destructure': 'error',

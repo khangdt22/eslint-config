@@ -248,6 +248,7 @@ module.exports = {
         'promise/no-multiple-resolved': 'error',
 
         'import/newline-after-import': 'warn',
+        'import/namespace': 'off',
         'import/no-deprecated': 'warn',
         'import/no-duplicates': 'off',
         'import/no-mutable-exports': 'error',
