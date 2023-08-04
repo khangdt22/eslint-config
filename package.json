@@ -4,7 +4,8 @@
     "packageManager": "pnpm@8.6.11",
     "author": "Dang Diep <khangdt310722@gmail.com>",
     "scripts": {
-        "build": "tsc --noEmit && pnpm -r run build"
+        "build": "tsc --noEmit && pnpm -r run build",
+        "release": "bumpp -r && pnpm -r publish"
     },
     "devDependencies": {
         "@khangdt22/eslint-config": "workspace:*",
@@ -12,8 +13,7 @@
         "@types/node": "^20.3.2",
         "bumpp": "^9.1.1",
         "eslint": "^8.43.0",
-        "eslint-plugin-khangdt": "link:./packages/eslint-plugin-khangdt",
-        "np": "^8.0.4",
+        "eslint-plugin-khangdt": "workspace:*",
         "typescript": ">= 5.0 <= 5.1.0",
         "unbuild": "^1.2.1"
     },

@@ -1,6 +1,6 @@
 {
     "name": "@khangdt22/eslint-config",
-    "version": "0.0.19",
+    "version": "0.0.20",
     "keywords": [
         "eslint",
         "eslintconfig"
@@ -23,9 +23,6 @@
     },
     "publishConfig": {
         "access": "public"
-    },
-    "scripts": {
-        "release": "np --no-yarn --no-release-draft --yolo --message='chore: release v%s'"
     },
     "dependencies": {
         "@typescript-eslint/eslint-plugin": "^5.60.1",

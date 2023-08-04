@@ -1,6 +1,6 @@
 {
     "name": "eslint-plugin-khangdt",
-    "version": "0.0.18",
+    "version": "0.0.20",
     "keywords": [
         "eslint",
         "eslint-plugin"
@@ -33,11 +33,11 @@
     },
     "scripts": {
         "build": "unbuild",
-        "release": "np --no-yarn --no-release-draft --yolo --message='chore: release v%s'",
         "prepublishOnly": "pnpm build"
     },
     "dependencies": {
-        "@typescript-eslint/utils": "^5.60.1"
+        "@typescript-eslint/utils": "^5.60.1",
+        "bumpp": "^9.1.1"
     },
     "peerDependencies": {
         "eslint": ">=8.0 <9.0"
