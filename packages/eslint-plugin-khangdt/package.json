@@ -32,7 +32,9 @@
         "access": "public"
     },
     "scripts": {
-        "build": "unbuild"
+        "build": "unbuild",
+        "release": "np --no-yarn --no-release-draft --yolo --message='chore: release v%s'",
+        "prepublishOnly": "pnpm build"
     },
     "dependencies": {
         "@typescript-eslint/utils": "^5.60.1"
