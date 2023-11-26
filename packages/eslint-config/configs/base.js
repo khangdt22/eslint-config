@@ -213,6 +213,7 @@ module.exports = {
         'n/no-unpublished-require': 'off',
         'n/no-process-exit': 'off',
         'n/no-path-concat': 'error',
+        'n/shebang': 'off',
 
         'sonarjs/cognitive-complexity': 'off',
         'sonarjs/no-duplicate-string': 'off',
