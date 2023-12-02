@@ -244,6 +244,7 @@ module.exports = {
         'unicorn/switch-case-braces': ['warn', 'avoid'],
         'unicorn/require-number-to-fixed-digits-argument': 'off',
 
+        'promise/always-return': 'off',
         'promise/catch-or-return': 'off',
         'promise/no-callback-in-promise': 'off',
         'promise/no-multiple-resolved': 'error',
